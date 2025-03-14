@@ -1,0 +1,179 @@
+
+*{
+    margin: 3px;
+    padding: 3px;
+}
+
+body{
+    font-family: Consolas, 'Courier New', monospace;
+    background-color:  rgb(219, 231, 231);
+    
+}
+
+.sidenav {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: #111;
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+}
+
+.sidenav a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+
+.sidenav a:hover {
+color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+.content{
+justify-content:center;
+text-align:center;
+align-items:center;
+border-top:solid 2px black; 
+margin-top:3%;
+}
+.topTitle{
+    align-items: center;
+    text-align: center;
+}
+
+.topTitle img{
+    height: auto;
+    width: 700px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.titleName{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+
+
+}
+.content{
+    background-color: rgba(245, 222, 179, 0.527);
+    margin-left: 30px;
+    margin-right: 30px;
+    border-radius: 5px;
+}
+.title{
+    text-align: left;
+    align-items: start;
+}
+.content p{
+    font-size: large;
+}
+.subtitle{
+    
+    text-align: left;
+    align-items: start;
+    color: #2c5494;
+    border-radius: 3px;
+    background-color: #f1f1f1;
+}
+.didyouknow{
+    background-color: darkgray;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+h1, h2 {
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #fff;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background: #333;
+    color: white;
+}
+
+  
+  
+@media only screen and (max-width:1200px){
+    .topTitle img{
+        height: auto;
+        width: 400px;
+    }
+
+    
+}
+@media only screen and (max-width:1000px){
+    .topTitle img{
+        height: auto;
+        width: 300px;
+    }
+    .content{
+        margin-left: 3px;
+    margin-right: 3px; 
+    }
+    .didyouknow{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    
+}
+@media only screen and (max-width:800px){
+    .topTitle img{
+        height: auto;
+        width: 200px;
+    }
+    
+}
+@media only screen and (max-width:700px){
+    .topTitle img{
+        height: auto;
+        width: 180px;
+    }
+    
+    
+}
+@media only screen and (max-width:500px){
+    .topTitle img{
+        height: auto;
+        width: 170px;
+    }
+    
+}
+@media only screen and (max-width:400px){
+    .topTitle img{
+        height: auto;
+        width: 150px;
+    }
+    
+}
+@media only screen and (max-width:250px){
+    .topTitle img{
+        height: auto;
+        width: 100px;
+    }
+    
+}
