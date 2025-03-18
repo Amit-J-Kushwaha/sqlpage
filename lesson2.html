@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson2</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+   <!--  <head>
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="lesson1.html">Lesson 1</a>
+          <a href="lesson2.html">Lesson 2</a>
+         
+          
+          
+        </div>
+        
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menubar</span>
+    </head> -->
+        
+    <div class="topTitle">
+        
+        <center>
+         <img src="C:\Users\jagmo\OneDrive\Desktop\sqlpage\sqlnut.png" alt="">
+        </center>
+    
+    </div>
+    
+    <div class="content">
+        <h1 class="title">SQL Lesson 2: Queries with constraints </h1>
+        <p>
+            Now that we know how to select specific columns from a table, dealing with large datasets can be challenging. If a table has millions of rows, reading all of them would be inefficient.
+
+To retrieve only the needed data, we use the WHERE clause. It filters rows by checking column values and returns only those that meet the specified conditions.
+        </p>
+
+        <div class="didyouknow">
+            <div class="description">
+                Select query with "Where" constraints
+            </div>
+            <div class="query">
+                <b>SELECT</b> column, another_column, … <br>
+                <b>FROM</b> mytable <br>
+                <b>WHERE</b> condition <br>
+                &nbsp;&nbsp;<b>AND/OR</b> another_condition <br>
+                &nbsp;&nbsp;<b>AND/OR</b> …; <br>
+            </div>
+        </div>
+
+
+
+
+        <div class="Logiccontainer">
+            <h2>SQL Logical Operators</h2>
+            <p>More complex conditions can be created by combining multiple <code>AND</code> or <code>OR</code> logical operators. For example:</p>
+            <pre>SELECT * FROM vehicles WHERE num_wheels >= 4 AND doors <= 2;</pre>
+            
+            <h3>Useful SQL Operators</h3>
+            <ul>
+                <li><code>=</code> → Equals (e.g., <code>age = 25</code>)</li>
+                <li><code>!=</code> or <code>&lt;&gt;</code> → Not equal (e.g., <code>price != 100</code>)</li>
+                <li><code>&gt;</code> → Greater than (e.g., <code>salary &gt; 50000</code>)</li>
+                <li><code>&lt;</code> → Less than (e.g., <code>stock &lt; 50</code>)</li>
+                <li><code>&gt;=</code> → Greater than or equal to (e.g., <code>rating &gt;= 4.5</code>)</li>
+                <li><code>&lt;=</code> → Less than or equal to (e.g., <code>discount &lt;= 10</code>)</li>
+                <li><code>BETWEEN</code> → Range selection (e.g., <code>age BETWEEN 18 AND 30</code>)</li>
+                <li><code>IN</code> → Matches any value in a list (e.g., <code>category IN ('Electronics', 'Clothing')</code>)</li>
+            </ul>
+            
+            <p>These operators help refine query results efficiently.</p>
+        </div>
+
+
+
+
+        <div class="didyouknow">
+            <div class="description">
+                Did you know?
+            </div>
+            <p>SQL does not require keywords to be written in all capital letters, but it is a common convention. Using uppercase for SQL keywords helps differentiate them from column and table names, making queries easier to read and understand.</p>
+        </div>
+
+
+        <div class="part2">
+            <h1>Common SQL Operators for Text Data</h1>
+            <p>When writing <code>WHERE</code> clauses for text columns, SQL provides useful operators for case-insensitive comparisons and pattern matching.</p>
+            
+            <h2>= (Equals)</h2>
+            <p>Exact match (case-sensitive in some databases).</p>
+            <pre>SELECT * FROM users WHERE name = 'John';</pre>
+            
+            <h2>ILIKE (Case-insensitive match)</h2>
+            <p>Available in PostgreSQL.</p>
+            <pre>SELECT * FROM users WHERE name ILIKE 'john';</pre>
+            
+            <h2>LIKE (Pattern matching with wildcards)</h2>
+            <p><strong>%</strong> matches any number of characters.</p>
+            <pre>SELECT * FROM users WHERE name LIKE 'Jo%'; -- Matches 'John', 'Jonathan'</pre>
+            <p><strong>_</strong> matches a single character.</p>
+            <pre>SELECT * FROM users WHERE name LIKE 'J_hn'; -- Matches 'John', 'Jahn'</pre>
+            
+            <h2>IN (Multiple value match)</h2>
+            <pre>SELECT * FROM users WHERE name IN ('John', 'Alice', 'Bob');</pre>
+            
+            <h2>NOT LIKE (Excludes pattern matches)</h2>
+            <pre>SELECT * FROM users WHERE name NOT LIKE 'Jo%';</pre>
+        </div>
+
+
+
+
+        <div class="container">
+            <h2>SQL Exercise Window</h2>
+            
+            <h3>Students Table</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Subject</th>
+                        <th>Hobby</th>
+                    </tr>
+                    <tr><td>101</td><td>Rahul Sharma</td><td>16</td><td>Mathematics</td><td>Chess</td></tr>
+                    <tr><td>102</td><td>Priya Mehta</td><td>15</td><td>Science</td><td>Painting</td></tr>
+                    <tr><td>103</td><td>Amit Verma</td><td>17</td><td>History</td><td>Reading</td></tr>
+                    <tr><td>104</td><td>Neha Singh</td><td>16</td><td>English</td><td>Dancing</td></tr>
+                    <tr><td>105</td><td>Rohan Gupta</td><td>15</td><td>Computer Sci</td><td>Coding</td></tr>
+                </table>
+            </div>
+            
+            <h3>Problem 1</h3>
+            <p>Find the student with Roll Number 103.</p>
+            <button onclick="showSolution('solution1')">Show Solution</button>
+            <div class="solution" id="solution1">SELECT * FROM students WHERE Age = 16;</div>
+            
+            <h3>Problem 2</h3>
+            <p>Retrieve all students who are 16 years old.</p>
+            <button onclick="showSolution('solution2')">Show Solution</button>
+            <div class="solution" id="solution2">SELECT * FROM student WHERE age = 16; </div>
+
+            <h3>Problem 3</h3>
+            <p>Get the details of students who have "Science" or "Computer Sci" as their subject.</p>
+            <button onclick="showSolution('solution3')">Show Solution</button>
+            <div class="solution" id="solution3">SELECT * FROM student WHERE subject IN ('Science', 'Computer Sci');</div>
+
+            <h3>Problem 4</h3>
+            <p>Find students whose hobby is "Chess".</p>
+            <button onclick="showSolution('solution4')">Show Solution</button>
+            <div class="solution" id="solution4">SELECT * FROM student WHERE hobby = 'Chess';</div>
+
+            <h3>Problem 5</h3>
+            <p>SELECT * FROM student WHERE age > 15;</p>
+            <button onclick="showSolution('solution5')">Show Solution</button>
+            <div class="solution" id="solution5">SELECT * FROM student WHERE age > 15;</div>
+
+            <h3>Problem 6</h3>
+            <p>Find students whose hobby contains the letter 'd'.</p>
+            <button onclick="showSolution('solution6')">Show Solution</button>
+            <div class="solution" id="solution6">SELECT * FROM students WHERE Hobby LIKE '%d%';</div>
+
+            <h3>Problem 7</h3>
+            <p>Find students whose names start with 'P'.</p>
+            <button onclick="showSolution('solution7')">Show Solution</button>
+            <div class="solution" id="solution7">SELECT * FROM students WHERE Name LIKE 'P%';</div>
+
+
+            <h3>Problem 8</h3>
+            <p>Find students whose name ends with 'a'.</p>
+            <button onclick="showSolution('solution8')">Show Solution</button>
+            <div class="solution" id="solution8">SELECT * FROM students WHERE Name LIKE '%a';</div>
+
+            <h3>Problem 9</h3>
+            <p>Find students whose name contains 'Gupta', case-insensitive.</p>
+            <button onclick="showSolution('solution9')">Show Solution</button>
+            <div class="solution" id="solution9">SELECT * FROM students WHERE Name ILIKE '%gupta%';</div>
+        
+
+
+            
+            <p>Write your SQL query below and click "Run Query" to see if your answer is correct.</p>
+            <textarea id="sqlQuery" placeholder="Enter your SQL query here..."></textarea>
+            <button onclick="checkQuery()">Run Query</button>
+            <div class="result-box" id="resultBox"></div>
+        </div>
+
+        
+
+    </div>
+
+
+    
+
+
+
+    <script src="lesson2.js"></script>
+</body>
+</html>

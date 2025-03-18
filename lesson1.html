@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson1</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+  <!--  <head>
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="lesson1.html">Lesson 1</a>
+          <a href="lesson2.html">Lesson 2</a>
+         
+          
+          
+        </div>
+        
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menubar</span>
+    </head>
+-->
+        
+    <div class="topTitle">
+        
+        <center>
+         <img src="C:\Users\jagmo\OneDrive\Desktop\sqlpage\sqlnut.png" alt="">
+        </center>
+    
+ </div>
+    <div class="content">
+        <h1 class="title">SQL Lesson 1: SELECT queries </h1>
+        <p>
+            To retrieve data from an SQL database, we use SELECT statements, also called queries. A query specifies what data we need, where to find it, and optionally, how to modify it before returning the results.
+
+            In SQL, a table represents an entity (e.g., "Students"), where each row is a specific instance (e.g., John, Sarah). The columns store attributes shared by all instances (e.g., age, grade, subject).
+
+            The simplest query selects specific columns (attributes) from a table while retrieving all rows (instances). Let's explore how this works in the exercises ahead.
+        </p>
+        <div class="didyouknow">
+            <p>
+                Select query for a specific columns <br><br>
+                <b>SELECT</b> column, another_column, … <br>
+                <b>FROM</b> mytable;
+            </p>
+        </div>
+        <p>
+            A query returns a table with the selected columns. To get all columns, use * instead of listing them. For example, SELECT * FROM employees; fetches everything from the "employees" table. This makes queries easier but may include extra data, which can affect performance.
+        </p>
+
+
+        <div class="didyouknow">
+            <p>
+                Select query for all columns <br><br>
+                <b>SELECT</b> * <br>
+                <b>FROM</b> mytable;
+            </p>
+        </div>
+
+        <p>
+            This query, in particular, is really useful because it's a simple way to inspect a table by dumping all the data at once.
+        </p>
+
+        <div class="subtitle">
+           <h6>Exercise</h6>
+
+        </div>
+
+        <p>
+            We will use a database with student information for our exercises. This first exercise involves the Student table, and the default query below shows all details of each student. To move to the next lesson, modify the query to retrieve the specific information needed for each task.
+        </p>
+
+
+        <div class="container">
+            <h2>SQL Exercise Window</h2>
+            
+            <h3>Students Table</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Subject</th>
+                        <th>Hobby</th>
+                    </tr>
+                    <tr><td>101</td><td>Rahul Sharma</td><td>16</td><td>Mathematics</td><td>Chess</td></tr>
+                    <tr><td>102</td><td>Priya Mehta</td><td>15</td><td>Science</td><td>Painting</td></tr>
+                    <tr><td>103</td><td>Amit Verma</td><td>17</td><td>History</td><td>Reading</td></tr>
+                    <tr><td>104</td><td>Neha Singh</td><td>16</td><td>English</td><td>Dancing</td></tr>
+                    <tr><td>105</td><td>Rohan Gupta</td><td>15</td><td>Computer Sci</td><td>Coding</td></tr>
+                </table>
+            </div>
+            
+            <h3>Problem 1</h3>
+            <p>Find all students who are 16 years old.</p>
+            <button onclick="showSolution('solution1')">Show Solution</button>
+            <div class="solution" id="solution1">SELECT * FROM students WHERE Age = 16;</div>
+            
+            <h3>Problem 2</h3>
+            <p>Find students who have 'Chess' as their hobby.</p>
+            <button onclick="showSolution('solution2')">Show Solution</button>
+            <div class="solution" id="solution2">SELECT * FROM students WHERE Hobby = 'Chess';</div>
+            
+            <p>Write your SQL query below and click "Run Query" to see if your answer is correct.</p>
+            <textarea id="sqlQuery" placeholder="Enter your SQL query here..."></textarea>
+            <button onclick="checkQuery()">Run Query</button>
+            <div class="result-box" id="resultBox"></div>
+        </div>
+
+
+        <div class="part2">
+            <h1>Common SQL Operators for Text Data</h1>
+            <p>When writing <code>WHERE</code> clauses for text columns, SQL provides useful operators for case-insensitive comparisons and pattern matching.</p>
+            
+            <h2>= (Equals)</h2>
+            <p>Exact match (case-sensitive in some databases).</p>
+            <pre>SELECT * FROM users WHERE name = 'John';</pre>
+            
+            <h2>ILIKE (Case-insensitive match)</h2>
+            <p>Available in PostgreSQL.</p>
+            <pre>SELECT * FROM users WHERE name ILIKE 'john';</pre>
+            
+            <h2>LIKE (Pattern matching with wildcards)</h2>
+            <p><strong>%</strong> matches any number of characters.</p>
+            <pre>SELECT * FROM users WHERE name LIKE 'Jo%'; -- Matches 'John', 'Jonathan'</pre>
+            <p><strong>_</strong> matches a single character.</p>
+            <pre>SELECT * FROM users WHERE name LIKE 'J_hn'; -- Matches 'John', 'Jahn'</pre>
+            
+            <h2>IN (Multiple value match)</h2>
+            <pre>SELECT * FROM users WHERE name IN ('John', 'Alice', 'Bob');</pre>
+            
+            <h2>NOT LIKE (Excludes pattern matches)</h2>
+            <pre>SELECT * FROM users WHERE name NOT LIKE 'Jo%';</pre>
+        </div>
+
+    </div>
+
+
+
+
+    <button><a href="lesson2.html">Begin Lesson2</a></button>
+
+    
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
